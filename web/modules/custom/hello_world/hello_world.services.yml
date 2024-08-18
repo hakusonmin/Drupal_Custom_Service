@@ -1,0 +1,10 @@
+services:
+  hello_world.get_user_name_service:
+    class: Drupal\hello_world\Service\GetUserNameService
+    autowire: true
+    arguments: ['@current_user']
+
+  hello_world.get_current_time_service:
+    class: Drupal\hello_world\Service\GetCurrentTimeService
+    autowire: true
+    arguments: ['@date.formatter','@datetime.time']
