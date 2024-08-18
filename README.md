@@ -19,4 +19,5 @@ $ composer dump-autoload
 ・DrupalAPIの呼び出し方がようやくわかった。DrupalAPIを呼び出す時の形式は大きく分けて３種類あり、①Drupalファサード ②サービスロケーター ③DI(コンストラクタ,セッターetc)であるようだ。(※①のDrupalファサードは\Drupal::hoge()のようにいきなり呼び出すことのできる形式をLaravelのファサードになぞらえて、私が仮称している)②のサービスロケーターは上述のとおり保守性が下がるので drush php 内でのケース以外では、使用は推奨されていない。<br>
 ・また、time()やcurrentUser(),entityQuery()がDrupal::hoge()のファサード形式で呼べるのに対して、DateFormatterなどはその形式で呼べず、サービスロケーターやDIする必要があるのか疑問であった。調べたところ、Drupal APIの [class Drupal](https://api.drupal.org/api/drupal/core%21lib%21Drupal.php/class/Drupal/11.x)に記載されているAPIはファサードとして呼べるということが判明した。そのソースはcore/lib/Drupal/phpに載っておりgetContainerしていることがわかる。
 
+### 実行時画面
 ![alt text](image.png)
